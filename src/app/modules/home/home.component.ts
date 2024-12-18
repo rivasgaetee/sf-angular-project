@@ -6,7 +6,7 @@ import { AuthService } from '../../core/services/auth.service';
   standalone: true,
   template: `
     <h1>Bienvenido al Home</h1>
-    <button (click)="logout()">Cerrar sesión</button>
+    <button class="btn btn-primary" (click)="logout()">Cerrar sesión</button>
   `,
 })
 export class HomeComponent {
