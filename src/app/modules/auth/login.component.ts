@@ -8,8 +8,8 @@ import { AuthService } from '../../core/services/auth.service';
   standalone: true,
   imports: [FormsModule],
   template: `
-    <div class="flex flex-col justify-center items-center h-screen w-screen">
-      <div class="mockup-window bg-base-300 border w-1/4">
+    <div class="flex flex-col justify-center items-center h-screen w-screen px-4">
+      <div class="mockup-window bg-base-300 border w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
         <form (ngSubmit)="onSubmit()" class="flex flex-col gap-8 px-4 py-6">
           <label class="input input-bordered flex items-center gap-2">
             <svg
