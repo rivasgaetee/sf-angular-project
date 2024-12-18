@@ -1,27 +1,102 @@
-# AngularApp
+# Proyecto Angular con Docker y Makefile
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+Este proyecto es una aplicación Angular que se ejecuta y desarrolla dentro de un contenedor Docker.
+Cuenta con soporte para entornos de desarrollo (ng serve), producción (ng build + NGINX) y herramientas adicionales
+para facilitar el trabajo a futuros desarrolladores.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📦 Requisitos Previos
 
-## Code scaffolding
+Antes de comenzar, asegúrate de tener instalados los siguientes programas en tu sistema:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Docker**: https://www.docker.com/get-started
+2. **Docker Compose**: https://docs.docker.com/compose/
+3. **Make**:
+  - Linux/macOS: Viene preinstalado o se puede instalar fácilmente.
+  - Windows:
+    - Git Bash (viene con `make`): https://git-scm.com/
+    - WSL (Windows Subsystem for Linux): https://docs.microsoft.com/en-us/windows/wsl/
+    - Chocolatey: `choco install make`
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Instalación y Configuración del Proyecto
 
-## Running unit tests
+1. **Clona el repositorio**:
+   ```bash
+   git clone <url-del-repositorio>
+   cd <nombre-del-repositorio>
+   
+2. **Levanta el entorno de desarrollo:**
+   ```bash
+   make dev
+   ```
+   Esto construirá la imagen Docker y ejecutará el servidor de desarrollo Angular (ng serve) en el puerto 4200.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## 🛠️ Comandos Disponibles con Makefile
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 1. **Levantar entorno de desarrollo**:
+   ```bash
+   make dev
+   ```
+   Accede a la aplicación en:
+   ```bash
+   http://localhost:4200
+   ```
 
-## Further help
+### 2. **Generar Build de Producción**:
+   Genera la versión optimizada de la aplicación Angular en la carpeta dist/.
+   ```bash
+   make dev
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 3. **Desplegar la Aplicación en Producción**:
+   ```bash
+   make deploy
+   ```
+   Accede a la aplicación en:
+   ```bash
+   http://localhost:8080
+   ```
+
+### 4. **Acceder al Contenedor Docker (Shell)**:
+Abre una terminal dentro del contenedor Docker para instalar dependencias o depurar.
+   ```bash
+   make shell
+   ```
+
+### 5. **Ver Logs del Contenedor**:
+Muestra los logs en tiempo real del contenedor.
+   ```bash
+   make logs
+   ```
+
+### 6. **Ejecuta pruebas unitarias (TODO)**:
+Ejecuta las pruebas unitarias de Angular en modo Headless (Chrome sin interfaz). (TODO)
+   ```bash
+   make test
+   ```
+
+### 7. **Detener los Contenedores**:
+Detiene y elimina los contenedores.
+   ```bash
+   make stop
+   ```
+
+---
+
+## 🐳 Estructura del Proyecto
+  ```
+  .
+├── Dockerfile                # Archivo para construir la imagen Docker
+├── docker-compose.yml        # Configuración de Docker Compose
+├── Makefile                  # Comandos de automatización
+├── nginx.conf                # Configuración de NGINX para producción
+├── package.json              # Dependencias del proyecto Angular
+├── src/                      # Código fuente de Angular
+├── angular.json              # Configuración de Angular CLI
+└── README.txt                # Documentación del proyecto
+```
+
