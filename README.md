@@ -34,6 +34,7 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas en tu
    ```
    Esto construirá la imagen Docker y ejecutará el servidor de desarrollo Angular (ng serve) en el puerto 4200.
 
+---
 
 ## 🛠️ Comandos Disponibles con Makefile
 

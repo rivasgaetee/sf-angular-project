@@ -1,7 +1,7 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
@@ -11,7 +11,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutes,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
